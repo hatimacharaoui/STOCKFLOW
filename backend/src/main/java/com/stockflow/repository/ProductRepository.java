@@ -10,13 +10,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    List<Product> findByPrixEquals(Double prixIsGreaterThan);
 
-    @Query("SELECT p from Product p where p.categorie = :categorie")
-    List<Product> findcategorie(@Param("categorie") String categorie);
-
-
-    @Query(value = "select * from products where quantite_stock <= :seuil", nativeQuery = true)
-    List<Product> findStockFaible(int seuil);
 
 }

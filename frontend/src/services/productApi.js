@@ -2,12 +2,6 @@ import api from "./api";
 
 const productApi = {
 
-    getStockFaible: () => api.get("/products/stock-faible"),
-
-    getCategorie: (params) => api.get("/products/search", {params}),
-
-    getProduct: () => api.get("/products/findProduct"),
-
     getAll: () => api.get("/products"),
 
     getById: (id) => api.get(`/products/${id}`),

@@ -19,21 +19,6 @@ public class ProductController {
     private final ProductService productService;
 
 
-    @GetMapping("/stock-faible")
-    public ResponseEntity<List<ProductDTO>> stockFaible() {
-        return ResponseEntity.ok(productService.findStockFaible());
-    }
-
-    @GetMapping("/search")
-    public ResponseEntity<List<ProductDTO>> findcategorie(@RequestParam String categorie) {
-        return ResponseEntity.ok(productService.findcategorie(categorie));
-    }
-
-    @GetMapping("/findProduct")
-    public ResponseEntity<List<ProductDTO>> findProduct() {
-        return ResponseEntity.ok(productService.findProduct());
-    }
-
     @PostMapping
     public ResponseEntity<ProductDTO> creer(@Valid @RequestBody ProductDTO dto) {
         ProductDTO product = productService.creer(dto);

@@ -5,12 +5,10 @@ import productApi from "../services/productApi.js";
 export default function Dashboard() {
 
     const [produits, setProduits] = useState([]);
-    const [produitStockFaible, setProduitStockFaible] = useState([]);
     const [erreur, setErreur] = useState("");
 
     useEffect(() => {
         chargerProduits();
-        chargerProduitFaibleStock();
 
     }, []);
 
@@ -24,16 +22,6 @@ export default function Dashboard() {
             setErreur("Impossible de charger les produits");
         }
     }
-
-    const chargerProduitFaibleStock = async () => {
-        try {
-            const reponse = await productApi.getStockFaible();
-            setProduitStockFaible(reponse.data);
-            console.log(reponse.data)
-        } catch (error) {
-            setErreur("Impossible de charger les produits en faible stock");
-        }
-    };
 
 
     const nombreProduits = produits.length;
@@ -69,6 +57,17 @@ export default function Dashboard() {
             </div>
 
 
+
+
+
+
+
+
+
+
+
+
+            {/*
             <div className="container">
                 <h1>Produits en faible stock</h1>
 
@@ -97,6 +96,7 @@ export default function Dashboard() {
                     </table>
                 )}
             </div>
+            */}
         </div>
     )
 }

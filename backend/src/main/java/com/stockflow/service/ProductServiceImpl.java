@@ -15,27 +15,10 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-    private final Double PRIX = 100.00;
-    private final int SEUIL = 5;
 
-    public List<ProductDTO> findStockFaible() {
-        return productRepository.findStockFaible(SEUIL)
-                .stream().map(p -> productMapper.toDto(p)).toList();
-    }
 
-    @Override
-    public List<ProductDTO> findcategorie(String categorie) {
-        return productRepository.findcategorie(categorie)
-                .stream().map(productMapper::toDto).toList();
-    }
-
-    public List<ProductDTO> findProduct() {
-        return productRepository.findByPrixEquals(PRIX)
-                .stream().map(productMapper::toDto).toList();
-    }
 
     public ProductDTO creer(ProductDTO dto) {
-
         Product product = productMapper.toEntite(dto);
         product.setDateCreation(LocalDateTime.now());
         return productMapper.toDto(productRepository.save(product));

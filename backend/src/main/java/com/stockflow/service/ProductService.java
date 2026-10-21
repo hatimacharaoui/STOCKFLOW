@@ -7,9 +7,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<ProductDTO> findStockFaible();
-    List<ProductDTO> findcategorie(String categorie);
-    List<ProductDTO> findProduct();
+
     ProductDTO creer(ProductDTO dto);
     List<ProductDTO> afficher();
     ProductDTO rechercheParId(Long id);
